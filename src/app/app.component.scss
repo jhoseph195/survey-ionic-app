@@ -1,0 +1,35 @@
+
+::ng-deep .text-right {
+    text-align: right !important;
+}
+
+::ng-deep .text-center {
+    text-align: center !important;
+}
+
+::ng-deep .text-left {
+    text-align: left !important;
+}
+
+::ng-deep .text-justify {
+    text-align: justify !important;
+}
+
+::ng-deep .btn-block {
+    width: 100% !important;
+}
+
+
+::ng-deep ion-toolbar {
+    --background: #00ABB3;
+    --color: white;
+}
+
+::ng-deep span,
+::ng-deep b {
+    color: #B2B2B2;
+}
+
+::ng-deep ion-card {
+    margin: 0 !important;
+}

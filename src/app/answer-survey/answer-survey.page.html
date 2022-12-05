@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#" (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{survey.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="backgroung" [style.background-color]="'#eaeaeaed'"></div>
+  <ion-grid>
+    <ion-row class="text-justify">
+      <ion-col size="12">
+        <b>Descripción</b>
+      </ion-col>
+      <ion-col size="12">
+        <span>{{survey.description}}</span>
+      </ion-col>
+    </ion-row>
+    <ng-container *ngFor="let question of survey.format">
+      <ng-container *ngIf="question.type == 'TEXT'">
+
+      </ng-container>
+      <ng-container *ngIf="question.type == 'SELECT'">
+
+      </ng-container>
+    </ng-container>
+    <ng-container *ngFor="let question of survey.format">
+      <ion-row class="text-justify">
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-content>
+              <b>{{question.question}} {{question.isRequired ? '*' : ''}}</b>
+              <ng-container *ngIf="question.type == 'TEXT'">
+                <ion-item>
+                  <ion-input class="btn-block" placeholder="Ingrese respuesta" [(ngModel)]="question.value"></ion-input>
+                </ion-item>
+              </ng-container>
+              <ng-container *ngIf="question.type == 'SELECT'">
+                <ion-item>
+                  <ion-select class="btn-block" placeholder="Seleccione una respuesta" [(ngModel)]="question.value">
+                    <ng-container *ngFor="let option of question.options">
+                      <ion-select-option [value]="option.value">{{option.value}}</ion-select-option>
+                    </ng-container>
+                  </ion-select>
+                </ion-item>
+              </ng-container>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>
+
+<ion-footer [style.background-color]="'#eaeaeaed'">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <button class="btn btn-block" [style.background-color]="'#00ABB3'" [style.color]="'#fff'"
+          (click)="save()">Guardar respuesta</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

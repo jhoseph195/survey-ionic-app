@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Encuestas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="backgroung" [style.background-color]="'#eaeaeaed'"></div>
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let survey of data">
+        <ion-col size="6" style="display: flex">
+          <ion-card style="height: -webkit-fill-available;" (click)="goToAnswer(survey.id)">
+            <ion-card-content>
+              <ion-grid clas="padding-20">
+                <ion-row>
+                  <ion-col size="6" offset="3" class="text-center">
+                    <img class="btn-block" src="./assets/images/formato.png">
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12" class="text-center">
+                    <span>{{survey.title}}</span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer [style.background-color]="'#eaeaeaed'">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <button class="btn btn-block" [style.background-color]="'#00ABB3'" [style.color]="'#fff'"
+          (click)="logout()">Cerrar
+          sesión</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
